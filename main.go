@@ -17,7 +17,7 @@ type Message struct {
 
 func about (w http.ResponseWriter, r *http.Request) {
 
-   m := Message{"Welcome to the Twosi API, build v0.0.001."}
+   m := Message{privateAboutMessage()}
    b, err := json.Marshal(m)
 
    if err != nil {
@@ -28,6 +28,9 @@ func about (w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+   fmt.Println("Hello universe! ", privateAboutMessage())
+   fmt.Println("Listening on port 8080.")
+
    http.HandleFunc("/", handler)
    http.HandleFunc("/about/", about)
    log.Fatal(http.ListenAndServe(":8080", nil))

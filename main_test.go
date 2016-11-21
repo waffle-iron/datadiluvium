@@ -9,8 +9,8 @@ type testpair struct {
 
 var tests = []testpair{
   { []float64{1,2}, 1.5 },
-  { []float64{1,1,1,1,1,1}, 1 },
-  { []float64{-1,1}, 0 },
+  { []float64{1,1,1,1}, 1 },
+  { []float64{-2,2}, 0 },
 }
 
 func Average(xs []float64) float64 {

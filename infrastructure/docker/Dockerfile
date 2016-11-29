@@ -1,2 +1,1 @@
-FROM golang:latest
-RUN mkdir /app
+FROM golang:1.7.3-alpine

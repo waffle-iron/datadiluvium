@@ -1,37 +1,51 @@
 package main
 
 import (
-   "encoding/json"
-   "fmt"
-   "net/http"
-   "log"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "os"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-   fmt.Fprintf(w, "Welcome to the early morning Amtrak Cascades, %s!", r.URL.Path[1:])
+type Page struct {
+    Title string `json:"title"`
+    Schema   string `json:"schema"`
 }
 
-type Message struct {
-   Text string
+func (p Page) toString() string {
+    return toJson(p)
 }
 
-func about (w http.ResponseWriter, r *http.Request) {
+func toJson(p interface{}) string {
+    bytes, err := json.Marshal(p)
+    if err != nil {
+        fmt.Println(err.Error())
+        os.Exit(1)
+    }
 
-   m := Message{privateAboutMessage()}
-   b, err := json.Marshal(m)
-
-   if err != nil {
-       panic(err)
-   }
-
-    w.Write(b)
+    return string(bytes)
 }
 
 func main() {
-   fmt.Println("Hello universe! ", privateAboutMessage())
-   fmt.Println("Listening on port 8080.")
 
-   http.HandleFunc("/", handler)
-   http.HandleFunc("/about/", about)
-   log.Fatal(http.ListenAndServe(":8080", nil))
+    pages := getPages()
+    for _, p := range pages {
+        fmt.Println(p.toString())
+        /* This should be parallelized for each of the schemas unless
+        they're dependent and need to be executed in a specific order. */
+    }
+
+    fmt.Println(toJson(pages))
+}
+
+func getPages() []Page {
+    raw, err := ioutil.ReadFile("./deluge.json")
+    if err != nil {
+        fmt.Println(err.Error())
+        os.Exit(1)
+    }
+
+    var c []Page
+    json.Unmarshal(raw, &c)
+    return c
 }

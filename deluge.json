@@ -1,14 +1,10 @@
 [
     {
         "title": "Generation-Alpha",
-        "schema": {
-          "type": "rdbms"
-        }
+        "schema": "rdbms"
     },
     {
         "title": "Another Generation Schema",
-        "schema": {
-          "type": "kv"
-        }
+        "schema": "kv"
     }
 ]

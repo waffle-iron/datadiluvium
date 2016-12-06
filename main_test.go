@@ -1,8 +1,8 @@
 package main
 
 import (
-  "os"
-  "fmt"
+  // "os"
+  // "fmt"
   "testing"
 )
 
@@ -19,17 +19,16 @@ func TestThingExists(t *testing.T) {
   }
 }
 
-
-func TestEnvironmentVariable(t *testing.T) {
-  result := os.Getenv("VERIFICATION_PASS")
-
-  fmt.Println(result)
-
-  if result != "Yes" {
-    t.Error(
-      "For", result,
-      "expected", "Yes",
-      "got", result,
-    )
-  }
-}
+// func TestEnvironmentVariable(t *testing.T) {
+//   result := os.Getenv("VERIFICATION_PASS")
+//
+//   fmt.Println(result)
+//
+//   if result != "Yes" {
+//     t.Error(
+//       "For", result,
+//       "expected", "Yes",
+//       "got", result,
+//     )
+//   }
+// }

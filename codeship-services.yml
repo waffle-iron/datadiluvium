@@ -1,8 +1,8 @@
-demo:
+deluge_build:
   build:
     image: deluge
     dockerfile_path: Dockerfile
-  links:
-    - postgres
-postgres:
-  image: postgres:9.3.6
+#   links:
+#     - postgres
+# postgres:
+#   image: postgres:9.3.6

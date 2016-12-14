@@ -1,5 +1,5 @@
 package api
 
-func privateCliVersion() string {
+func cliVersion() string {
     return "v0.0.001"
 }

@@ -15,5 +15,3 @@
 * tom_h@thrashingcode.com
 * donna_m@thrashingcode.com
 * jerry_g@thrashingcode.com
-
-These characters are all of course copyright

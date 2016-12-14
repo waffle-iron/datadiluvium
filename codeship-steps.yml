@@ -1,9 +1,9 @@
 - name: deluge
-  service: deluge_build
-  command: echo 'First steps.'
+  service: deluge_svc
+  command: go clean
 - name: deluge_tests
-  service: deluge_build
+  service: deluge_svc
   command: go test
 - name: deluge_build
-  service: deluge_build
-  command: go test
+  service: deluge_svc
+  command: go build

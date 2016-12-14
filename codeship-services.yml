@@ -1,4 +1,4 @@
-deluge_build:
+deluge_svc:
   build:
     image: deluge
     dockerfile_path: Dockerfile

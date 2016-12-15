@@ -3,7 +3,7 @@
   command: go clean
 - name: deluge_tests
   service: deluge_svc
-  command: go test
+  command: go test ./...
 - name: deluge_build
   service: deluge_svc
   command: go build

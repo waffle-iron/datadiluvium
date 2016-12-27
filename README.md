@@ -5,3 +5,5 @@
 This project is a data generation library for varying databases and other storage mechanisms. For more information on the library ping me [@adron](https://twitter.com/Adron) to ask questions, dive in with some code of your own, or other suggestions or comments.
 
 ...and yes, more docs are on their way.  ;-)
+
+For more information check out the project site @ http://blog.adron.me/datadiluvium/
